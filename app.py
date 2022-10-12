@@ -41,8 +41,11 @@ def callback():
 def handle_message(event):
     msg = event.message.text
     reply = "I can't understand you, please reply another message."
-    if mag == 'Hi' or msg == 'hi':
+    
+    if msg == 'Hi' or msg == 'hi':
         reply = 'Hi'
+    elif msg == 'How is your day':
+        reply = 'It is wonderful, and yop?'
 
     line_bot_api.reply_message(
         event.reply_token,
