@@ -42,6 +42,13 @@ def handle_message(event):
     msg = event.message.text
     reply = "I can't understand you, please reply another message."
     
+    if 'sticker' in msg:
+        sticker_message = StickerSendMessage(
+            package_id='1',
+            sticker_id='1'
+        )
+        return
+        
     if msg in ['Hi', 'hi']:
         reply = 'Hi'
     elif msg in ['how is your day', "what's up", 'how are you']:
@@ -53,10 +60,7 @@ def handle_message(event):
 
     line_bot_api.reply_message(
         event.reply_token,
-        StickerSendMessage(
-            package_id='1',
-            sticker_id='1'
-    ))
+        TextSendMessage(text=reply))
 
 
 if __name__ == "__main__":
