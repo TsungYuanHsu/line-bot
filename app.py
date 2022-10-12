@@ -56,7 +56,7 @@ def handle_message(event):
         StickerSendMessage(
             package_id='1',
             sticker_id='1'
-    )
+    ))
 
 
 if __name__ == "__main__":
