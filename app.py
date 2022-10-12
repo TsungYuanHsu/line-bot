@@ -42,10 +42,14 @@ def handle_message(event):
     msg = event.message.text
     reply = "I can't understand you, please reply another message."
     
-    if msg == 'Hi' or msg == 'hi':
+    if msg in ['Hi', 'hi']:
         reply = 'Hi'
-    elif msg == 'How is your day':
-        reply = 'It is wonderful, and yop?'
+    elif msg in ['how is your day', "what's up", 'how are you']:
+        reply = 'It is wonderful, and you?'
+    elif msg == 'who are you':
+        reply = 'I am Johnson line bot'
+    elif 'weather' in msg:
+        reply = 'Do you wanna talk about weather'
 
     line_bot_api.reply_message(
         event.reply_token,
